@@ -6,7 +6,9 @@
     <title>AI-Powered Resume Scanner</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
     
 </head>
 <body>
@@ -25,13 +27,12 @@
                     <p>Supports PDF, DOCX, and TXT files</p>
                 </div>
                 <input type="file" id="fileInput" multiple accept=".pdf,.docx,.txt" style="display: none;">
-                
                 <div class="file-list" id="fileList"></div>
             </div>
 
             <div class="card">
                 <h2>Job Description & Industry</h2>
-                
+
                 <select class="industry-selector" id="industrySelector">
                     <option value="">Select Industry (Auto-detect if not selected)</option>
                     <option value="technology">Technology & Software</option>
@@ -52,12 +53,18 @@
                 </select>
 
                 <div class="industry-preview" id="industryPreview"></div>
-                
+
                 <textarea 
                     class="job-description" 
                     id="jobDescription" 
                     placeholder="Paste the job description here..."
                 ></textarea>
+
+                <div class="tip-view">
+                    <p class="tip">
+                        <strong>Tip:</strong> Include specific skills, technologies, and requirements for better matching accuracy.
+                    </p>
+                </div>
 
                 <div class="analysis-options">
                     <div class="option-item">
@@ -77,9 +84,8 @@
                         <label for="cultureFit">Culture Fit Analysis</label>
                     </div>
                 </div>
-                
+
                 <div class="job-controls">
-                    <div></div>
                     <button class="btn" id="analyzeBtn" disabled>
                         Analyze Resumes
                     </button>
@@ -91,18 +97,16 @@
             <h2 style="color: #667eea; margin-bottom: 20px;">Analysis Results</h2>
             
             <div class="filters" id="filtersContainer"></div>
-            
             <div class="stats" id="statsContainer"></div>
-            
+
             <div id="loadingIndicator" class="loading" style="display: none;">
                 <div class="spinner"></div>
                 <p>AI analyzing resumes across multiple dimensions...</p>
             </div>
-            
+
             <div id="resumeResults"></div>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
 </body>
 </html>
