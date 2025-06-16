@@ -1,0 +1,66 @@
+{
+  "industrySkills": {
+    "technology": {
+      "technical": ["JavaScript", "Python", "Java", "React", "Node.js", "AWS", "Docker", "Kubernetes", "SQL", "Git", "API", "Microservices", "DevOps", "Agile", "Machine Learning", "AI", "TypeScript", "Angular", "Vue", "MongoDB", "PostgreSQL", "Redis", "Jenkins", "Terraform"],
+      "soft": ["Problem Solving", "Team Collaboration", "Code Review", "Technical Leadership", "Mentoring", "Architecture Design"],
+      "certifications": ["AWS Certified", "Google Cloud", "Azure", "Kubernetes", "Scrum Master", "PMP"]
+    },
+    "healthcare": {
+      "technical": ["EMR Systems", "Epic", "Cerner", "HIPAA", "ICD-10", "CPT Coding", "Medical Terminology", "Pharmacy Systems", "Lab Results", "Radiology", "Patient Monitoring", "Telemedicine"],
+      "soft": ["Patient Care", "Bedside Manner", "Emergency Response", "Medical Ethics", "Documentation", "Interdisciplinary Collaboration"],
+      "certifications": ["RN License", "BLS", "ACLS", "PALS", "CNA", "LPN", "MD", "NP", "PA-C"]
+    },
+    "finance": {
+      "technical": ["Financial Modeling", "Excel", "Bloomberg Terminal", "SQL", "Python", "R", "Risk Management", "Portfolio Management", "Trading Systems", "Derivatives", "Fixed Income", "Equity Research"],
+      "soft": ["Financial Analysis", "Client Relations", "Presentation Skills", "Regulatory Compliance", "Due Diligence", "Market Research"],
+      "certifications": ["CFA", "FRM", "CPA", "Series 7", "Series 63", "MBA Finance"]
+    },
+    "marketing": {
+      "technical": ["Google Analytics", "SEO", "SEM", "Facebook Ads", "HubSpot", "Salesforce", "Adobe Creative Suite", "Content Management", "Email Marketing", "Social Media", "Marketing Automation"],
+      "soft": ["Creative Thinking", "Brand Strategy", "Campaign Management", "Customer Insights", "Storytelling", "Market Analysis"],
+      "certifications": ["Google Ads", "Google Analytics", "HubSpot", "Facebook Blueprint", "Salesforce"]
+    },
+    "education": {
+      "technical": ["Curriculum Development", "Learning Management Systems", "Assessment Design", "Educational Technology", "Blackboard", "Canvas", "Google Classroom", "SMARTBOARD"],
+      "soft": ["Classroom Management", "Student Engagement", "Differentiated Instruction", "Parent Communication", "Lesson Planning", "Behavior Management"],
+      "certifications": ["Teaching License", "Subject Area Certification", "ESL Certification", "Special Education"]
+    },
+    "engineering": {
+      "technical": ["CAD Software", "AutoCAD", "SolidWorks", "MATLAB", "Project Management", "Quality Control", "Manufacturing Processes", "Lean Manufacturing", "Six Sigma", "Safety Protocols"],
+      "soft": ["Technical Writing", "Problem Solving", "Process Improvement", "Team Leadership", "Cross-functional Collaboration"],
+      "certifications": ["PE License", "Six Sigma", "PMP", "OSHA", "ISO Certification"]
+    },
+    "legal": {
+      "technical": ["Legal Research", "Case Management", "Contract Law", "Litigation", "Compliance", "Regulatory Law", "Legal Writing", "Discovery Process", "Court Procedures"],
+      "soft": ["Attention to Detail", "Critical Thinking", "Negotiation", "Client Counseling", "Oral Advocacy", "Time Management"],
+      "certifications": ["Bar Admission", "Paralegal Certificate", "Notary Public", "Specialized Law Certifications"]
+    },
+    "retail": {
+      "technical": ["POS Systems", "Inventory Management", "Customer Service", "Sales Techniques", "Visual Merchandising", "Cash Handling", "Product Knowledge"],
+      "soft": ["Customer Relations", "Team Work", "Communication", "Problem Resolution", "Time Management", "Adaptability"],
+      "certifications": ["Retail Management", "Customer Service", "Sales Certification"]
+    },
+    "hospitality": {
+      "technical": ["Hotel Management Systems", "PMS", "Revenue Management", "Food Safety", "Event Planning", "Reservation Systems", "Restaurant Operations"],
+      "soft": ["Guest Relations", "Hospitality Service", "Cultural Sensitivity", "Conflict Resolution", "Team Leadership", "Multitasking"],
+      "certifications": ["Hotel Management", "Food Handler", "ServSafe", "Event Planning"]
+    },
+    "creative": {
+      "technical": ["Adobe Creative Suite", "Photoshop", "Illustrator", "InDesign", "Figma", "Sketch", "UI/UX Design", "Web Design", "Video Editing", "Animation"],
+      "soft": ["Creative Problem Solving", "Visual Communication", "Brand Development", "Client Collaboration", "Project Management", "Artistic Vision"],
+      "certifications": ["Adobe Certified", "UX Certification", "Design Thinking"]
+    }
+  },
+  "industryKeywords": {
+    "technology": ["software", "development", "programming", "coding", "technical", "system", "platform", "architecture", "database", "cloud"],
+    "healthcare": ["patient", "medical", "clinical", "healthcare", "treatment", "diagnosis", "therapy", "nursing", "hospital", "practice"],
+    "finance": ["financial", "investment", "banking", "analysis", "portfolio", "trading", "risk", "capital", "market", "economic"],
+    "marketing": ["marketing", "advertising", "campaign", "brand", "promotion", "digital", "social media", "content", "lead generation"],
+    "education": ["teaching", "education", "student", "curriculum", "instruction", "learning", "classroom", "academic", "training"],
+    "engineering": ["engineering", "design", "manufacturing", "production", "technical", "mechanical", "electrical", "civil", "industrial"],
+    "legal": ["legal", "law", "attorney", "litigation", "contract", "compliance", "regulatory", "court", "paralegal"],
+    "retail": ["retail", "sales", "customer service", "merchandise", "store", "inventory", "cashier", "customer"],
+    "hospitality": ["hospitality", "hotel", "restaurant", "guest", "service", "tourism", "event", "catering"],
+    "creative": ["design", "creative", "graphic", "visual", "art", "branding", "multimedia", "photography", "video"]
+  }
+}
