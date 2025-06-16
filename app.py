@@ -3,7 +3,7 @@ import os
 import json
 import re
 from werkzeug.utils import secure_filename
-import PyPDF2
+import pdfplumber
 from docx import Document
 import logging
 
@@ -16,7 +16,11 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+EMAIL_REGEX = r'\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b'
+PHONE_REGEX = r'(\+?\d{1,2}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)\d{3}[-.\s]?\d{4}'
+
 class ResumeAnalyzer:
+
     def __init__(self, skills_file="static/js/skills.json"):
         self.skills_file = skills_file
         self.load_industry_data()
@@ -47,15 +51,27 @@ class ResumeAnalyzer:
         
         return detected_industry
     
+    def clean_text(self, text):
+        """Strip extra whitespace, control characters, and artifacts"""
+        text = re.sub(r'\s+', ' ', text)
+        text = text.replace('\u200b', '')
+        return text.strip()
+    
+    def extract_email(self, text):
+        """Extracts a single valid email"""
+        match = re.search(EMAIL_REGEX, text)
+        return match.group(0) if match else 'Not found'
+
     def extract_text_from_pdf(self, file_path):
-        """Extract text from PDF file"""
+        """Accurate text extraction from PDF using pdfplumber"""
         try:
-            with open(file_path, 'rb') as file:
-                pdf_reader = PyPDF2.PdfReader(file)
-                text = ""
-                for page in pdf_reader.pages:
-                    text += page.extract_text() + "\n"
-                return text
+            text = ""
+            with pdfplumber.open(file_path) as pdf:
+                for page in pdf.pages:
+                    page_text = page.extract_text()
+                    if page_text:
+                        text += page_text + "\n"
+            return text
         except Exception as e:
             logger.error(f"Error extracting PDF text: {e}")
             return ""
@@ -95,16 +111,18 @@ class ResumeAnalyzer:
             return ""
     
     def parse_resume_content(self, content, filename):
-        """Parse resume content to extract basic information"""
-        email_match = re.search(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', content)
+        """Parse resume content to extract email and phone"""
+        cleaned_content = self.clean_text(content)
+
+        email_match = re.search(EMAIL_REGEX, cleaned_content)
         email = email_match.group(0) if email_match else 'Not found'
-        
-        phone_match = re.search(r'(\+?\d{1,2}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}', content)
+
+        phone_match = re.search(PHONE_REGEX, cleaned_content)
         phone = phone_match.group(0) if phone_match else 'Not found'
-        
+
         return {
             'name': filename,
-            'content': content,
+            'content': cleaned_content,
             'email': email,
             'phone': phone
         }
