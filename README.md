@@ -58,4 +58,5 @@ Data Science Projects: Create datasets for modeling career recommendations or tr
 ## 📃 License
 Feel free to use and modify this data. Attribution is appreciated but not required.
 
+## ✍️ Author
 Created and structured by me ^-^. Contributions welcome.
