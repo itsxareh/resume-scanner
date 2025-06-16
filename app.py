@@ -62,6 +62,30 @@ class ResumeAnalyzer:
         match = re.search(EMAIL_REGEX, text)
         return match.group(0) if match else 'Not found'
 
+    def clean_phone_number(self, mobile_num):
+        """Clean and normalize Philippine mobile numbers (starts with 09, 11 digits)"""
+        if len(mobile_num) >= 10:
+            last_10 = mobile_num[-10:]
+            if last_10[0] == '9':
+                mobile_num = '0' + last_10
+
+        if mobile_num.startswith('639') and len(mobile_num) == 12:
+            result = '09' + mobile_num[3:]
+            return result
+
+        if mobile_num.startswith('9') and len(mobile_num) == 10:
+            result = '0' + mobile_num
+            return result
+
+        if mobile_num.startswith('09') and len(mobile_num) == 11:
+            return mobile_num
+
+        if mobile_num.startswith('+639') and len(mobile_num) == 13:
+            result = '09' + mobile_num[4:]
+            return result
+
+        return mobile_num
+
     def extract_text_from_pdf(self, file_path):
         """Accurate text extraction from PDF using pdfplumber"""
         try:
@@ -118,7 +142,9 @@ class ResumeAnalyzer:
         email = email_match.group(0) if email_match else 'Not found'
 
         phone_match = re.search(PHONE_REGEX, cleaned_content)
-        phone = phone_match.group(0) if phone_match else 'Not found'
+        raw_phone = phone_match.group(0) if phone_match else ''
+
+        phone = self.clean_phone_number(raw_phone)
 
         return {
             'name': filename,
