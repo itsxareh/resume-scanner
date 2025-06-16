@@ -21,7 +21,7 @@ PHONE_REGEX = r'(\+?\d{1,2}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)\d{3}[-.\s]?\d{4}'
 
 class ResumeAnalyzer:
 
-    def __init__(self, skills_file="static/js/skills.json"):
+    def __init__(self, skills_file="skills.json"):
         self.skills_file = skills_file
         self.load_industry_data()
     
@@ -143,7 +143,13 @@ class ResumeAnalyzer:
     
     def estimate_culture_fit(self, content):
         """Estimate culture fit based on keywords"""
-        traits = ['team', 'collaborate', 'value', 'mission', 'diverse', 'inclusive', 'growth']
+        traits = [
+            'team', 'collaborate',
+            'integrity', 'respect',
+            'growth', 'learning',
+            'flexibility', 'balance',
+            'ownership', 'transparency'
+        ]
         score = sum(1 for trait in traits if trait.lower() in content.lower())
         return f"{(score / len(traits) * 100):.0f}% Match"
     
