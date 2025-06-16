@@ -62,8 +62,10 @@ class ResumeAnalyzer:
         match = re.search(EMAIL_REGEX, text)
         return match.group(0) if match else 'Not found'
 
-    def clean_phone_number(self, mobile_num):
+    def clean_phone_number(self, mobile):
         """Clean and normalize Philippine mobile numbers (starts with 09, 11 digits)"""
+        mobile_num = re.sub(r'\D', '', mobile)
+        
         if len(mobile_num) >= 10:
             last_10 = mobile_num[-10:]
             if last_10[0] == '9':
