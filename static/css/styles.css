@@ -493,12 +493,26 @@ body {
 }
 
 .result-card {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    border-left: 5px solid #667eea;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    background: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.result-badges .badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .result-card h3 {
@@ -523,6 +537,14 @@ body {
     border-radius: 8px;
     font-size: 0.9rem;
     color: #555;
+}
+
+.result-summary {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border-left: 4px solid #2196f3;
 }
 
 .filter-group {
@@ -605,28 +627,7 @@ details[open] summary {
     border-left: 4px solid #10b981;
 }
 
-.result-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 15px 0;
-    background: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
 
-.result-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.result-badges .badge {
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: bold;
-}
 
 .badge-gold { background: #ffd700; color: #000; }
 .badge-silver { background: #c0c0c0; color: #000; }
@@ -779,10 +780,3 @@ details[open] summary {
     border-radius: 4px;
 }
 
-.result-summary {
-    background: #e3f2fd;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    border-left: 4px solid #2196f3;
-}
